@@ -96,17 +96,17 @@
       }
     },
     "titleLang": {
-      "en": "Matter protocol",
-      "de": "Matter Protokoll",
-      "ru": "Протокол Matter",
-      "pt": "Protocolo de Matter",
-      "nl": "Matter protocol",
-      "fr": "Matter protocol",
-      "it": "Protocollo della Matter",
-      "es": "Protocolo de la Matter",
-      "pl": "Protokół Matter",
-      "uk": "Протокол Маттер",
-      "zh-cn": "Matter"
+      "en": "Matter protocol unlimited",
+      "de": "Matter Protokoll Unlimited",
+      "ru": "Протокол Matter (Unlimited)",
+      "pt": "Protocolo de Matter (Unlimited)",
+      "nl": "Matter protocol (Unlimited)",
+      "fr": "Matter protocol (Unlimited)",
+      "it": "Protocollo della Matter (Unlimited)",
+      "es": "Protocolo de la Matter (Unlimited)",
+      "pl": "Protokół Matter (Unlimited)",
+      "uk": "Протокол Маттер (Unlimited)",
+      "zh-cn": "Matter (Unlimited)"
     },
     "desc": {
       "en": "Controlling and simulation of matter devices",
