@@ -31,6 +31,12 @@ export default [
             'jsdoc/require-param': 'off',
 
             '@typescript-eslint/no-require-imports': 'off',
+            'prettier/prettier': [
+                'error',
+                {
+                    endOfLine: 'auto',
+                },
+            ],
         },
     },
 ];

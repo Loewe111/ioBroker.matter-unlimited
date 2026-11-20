@@ -26,6 +26,12 @@ export default [
             'jsdoc/require-jsdoc': 'off',
             'jsdoc/require-param': 'off',
             '@/no-duplicate-imports': 'error',
+            'prettier/prettier': [
+                'error',
+                {
+                    endOfLine: 'auto',
+                },
+            ],
         },
     },
     {

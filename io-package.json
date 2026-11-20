@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "matter",
+    "name": "matter-unlimited",
     "version": "1.3.1",
     "news": {
       "1.3.1": {
@@ -126,7 +126,7 @@
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
-    "nogit": true,
+    "nogit": false,
     "loglevel": "info",
     "readme": "https://github.com/ioBroker/ioBroker.matter/blob/master/README.md",
     "icon": "matter.svg",
@@ -165,11 +165,7 @@
     "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.matter/master/admin/matter.svg",
     "type": "iot-systems",
     "messagebox": true,
-    "plugins": {
-      "sentry": {
-        "dsn": "https://de38f4a20c964ce395d2e236c64aa075@sentry.iobroker.net/234"
-      }
-    },
+    "plugins": {},
     "licenseInformation": {
       "type": "free",
       "license": "Apache-2.0"

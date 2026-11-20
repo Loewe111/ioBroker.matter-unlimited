@@ -61,12 +61,6 @@ import plLang from './i18n/pl.json';
 import ukLang from './i18n/uk.json';
 import zhCnLang from './i18n/zh-cn.json';
 
-declare global {
-    interface Window {
-        sentryDSN: string;
-    }
-}
-
 const productIDs: string[] = [];
 for (let i = 0x8000; i <= 0x801f; i++) {
     productIDs.push(`0x${i.toString(16)}`);
@@ -162,7 +156,6 @@ class App extends GenericApp<GenericAppProps, AppState> {
             'zh-cn': zhCnLang,
         };
 
-        extendedProps.sentryDSN = window.sentryDSN;
         // extendedProps.socket = {
         //     protocol: 'http:',
         //     host: '192.168.178.45',
@@ -681,57 +674,11 @@ class App extends GenericApp<GenericAppProps, AppState> {
         );
     }
 
-    async getLicense(): Promise<string | false> {
-        const adapterSettings: MatterAdapterConfig = this.state.native as MatterAdapterConfig;
-
-        if (adapterSettings.login && adapterSettings.pass) {
-            if (this.state.alive) {
-                // ask the instance
-                const result = await this.socket.sendTo(`matter.${this.instance}`, 'getLicense', {
-                    login: adapterSettings.login,
-                    pass: adapterSettings.pass,
-                });
-                if (result.error) {
-                    this.showToast(result.error);
-                    return false;
-                }
-                return result.result;
-            }
-            this.showToast('You need a running matter instance to add more than one bridge or more than 2 devices');
-            return false;
-        }
-        return false;
-    }
-
     async checkLicenseOnAdd(
         type: 'addBridge' | 'addDevice' | 'addDeviceToBridge',
         matter?: MatterConfig,
     ): Promise<boolean> {
-        let result: boolean | string = true;
-        matter = matter || this.state.matter;
-        if (matter) {
-            if (type === 'addBridge') {
-                if (matter.bridges.filter(bridge => bridge.enabled).length >= 1) {
-                    result = await this.getLicense();
-                }
-            } else if (type === 'addDevice') {
-                if (matter.devices.filter(device => device.enabled).length >= 2) {
-                    result = await this.getLicense();
-                }
-            } else if (type === 'addDeviceToBridge') {
-                if (
-                    matter.bridges.find(bridge => bridge.enabled && bridge.list.filter(dev => dev.enabled).length >= 5)
-                ) {
-                    result = await this.getLicense();
-                }
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-
-        return !!result; // User may add one bridge or one device
+        return true; // User may add one bridge or one device
     }
 
     async onSave(isClose?: boolean): Promise<void> {
